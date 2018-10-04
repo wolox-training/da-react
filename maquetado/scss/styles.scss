@@ -1,0 +1,28 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-content {
+  padding: 160px 100px 100px;
+
+  .tech-area:not(:last-child){
+    margin: 0 0 90px;
+  }
+}
+
+.tech-area{
+
+  .tech-list {
+    margin: 20px 0 0 0;
+  }
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 70px;
+
+  .tech-box {
+    margin: 16px;
+  }
+}
