@@ -5,6 +5,7 @@
 *.sass.map
 *.scss.map
 *.css
+application.css
 
 ## System ##
 .DS_Store
