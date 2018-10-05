@@ -1,13 +1,10 @@
 ### Sass ###
-maquetado/.sass-cache/
-maquetado/.scss-cache/
-maquetado/*.css.map
-maquetado/*.sass.map
-maquetado/*.scss.map
-maquetado/*.css
+.sass-cache/
+.scss-cache/
+*.css.map
+*.sass.map
+*.scss.map
+*.css
 
 ## System ##
 .DS_Store
-
-## Editor Settings ##
-maquetado/.vscode/settings.json
