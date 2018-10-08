@@ -14,11 +14,20 @@ body {
 }
 
 .tech-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   padding: 0 70px;
+  margin: 0 auto;
+  max-width: $tech-list-size;
+  width: 100%;
+}
 
-  .tech-box {
-    margin: 16px;
+.tech-box {
+  margin: 0 auto;
+  
+  &:first-child{
+    border-right: 2px solid $green;
+    grid-row: 1/3;
   }
 }

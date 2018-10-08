@@ -1,33 +1,11 @@
 .tech-box {
   align-items: center;
-  background: $green;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  padding: 10px 25px 30px;
-  position: relative;
+  justify-content: center;
+  padding: 30px;
   text-align: center;
-  width: 200px;
-
-  &::before{
-    border: 1px solid $green;
-    border-radius: 5px;
-    content: '';
-    height: 100%;
-    left: -10px;
-    position: absolute;
-    top: -10px;
-    transition: all 0.5s ease;
-    width: 100%;
-    z-index: -1;
-  }
-
-  &:hover {
-    &::before {
-      top: 10px;
-      left: 10px;
-    }
-  }
+  width: 230px;
 }
 
 .tech-box-logo {
