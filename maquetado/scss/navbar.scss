@@ -1,11 +1,9 @@
-$navbar-height: 90px;
-
 .nav {
   align-items: center;
   background: white;
   box-shadow: 0px 5px 10px $grey;
   display: flex;
-  height: $navbar-height;
+  height: $nav-height;
   justify-content: space-between;
   left: 0;
   padding: 18px;
@@ -16,5 +14,5 @@ $navbar-height: 90px;
 }
 
 .nav-logo {
-  height: 30px;
+  height: $nav-logo-height;
 }
