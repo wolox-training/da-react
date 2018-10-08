@@ -1,5 +1,7 @@
 .footer {
   background: $blue;
+  display: flex;
+  flex-direction: column;
   padding: 40px;
 }
 
@@ -11,14 +13,13 @@
 }
 
 .footer-slogan {
-  color: white;
+  color: $white;
   margin: 0 0 15px;
   text-transform: uppercase;
 }
 
 .footer-copyright {
-  color: white;
-  display: block;
+  align-self: flex-end;
+  color: $white;
   margin: 10px 0 0;
-  text-align: right;
 }
