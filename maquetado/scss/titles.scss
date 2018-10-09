@@ -1,0 +1,29 @@
+.tech-area-title {
+  align-items: center;
+  display: flex;
+  margin: 0 0 30px;
+  position: relative;
+
+    &::before {
+      content: url('img/triangle.svg');
+      height: $title-decoration-height;
+      left: 0;
+      margin: -5px -18px 0 0;
+      position: relative;
+      top: 0;
+      width: $title-decoration-width;
+      z-index: -1;
+    }
+}
+
+.title-big {
+  font-size: $text-big;
+}
+
+.title-medium {
+  font-size: $text-medium;
+}
+
+.title-small {
+  font-size: $text-small;
+}

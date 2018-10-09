@@ -1,0 +1,14 @@
+$content-size: 1200px;
+$nav-height: 90px;
+$nav-logo-height: 30px;
+$title-decoration-height: 90px;
+$title-decoration-width: 70px;
+
+@import 'equalizer';
+@import 'colors';
+@import 'sizes';
+@import 'styles';
+@import 'titles';
+@import 'tech';
+@import 'navbar';
+@import 'footer';

@@ -1,0 +1,48 @@
+.tech-box {
+  align-items: center;
+  background: $green;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 30px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+
+  &::before{
+    border: 1px solid $green;
+    border-radius: 5px;
+    content: '';
+    height: 100%;
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    transition: all 0.5s ease;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover {
+    &::before {
+      top: 10px;
+      left: 10px;
+    }
+  }
+}
+
+.tech-box-logo {
+  height: $tech-logo-size;
+  width: $tech-logo-size;
+}
+
+.tech-box-title{
+  margin: 10px 0;
+}
+
+.tech-box-release {
+  font-weight: 900;
+}
+
+.tech-box-info{
+  margin: 20px 0 0;
+}
