@@ -30,3 +30,26 @@ body {
     grid-row: 1/3;
   }
 }
+
+@media only screen and (max-width: 1024px){
+  .nav-title{
+    display: none;
+  }
+
+  .tech-area-title{
+    margin: 0;
+    padding: 0 40px;
+  }
+
+  .tech-list{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .tech-box {
+    &:not(:last-child){
+      border-bottom: 2px solid $green;
+      border-right: none;
+    }
+  }
+}
