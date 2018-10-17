@@ -38,3 +38,7 @@ export function reverseMerge(...arrays) {
   });
   return newArray;
 }
+
+export function filterAttribs({ a, b, ...arg } = {}) {
+  return arg;
+}
