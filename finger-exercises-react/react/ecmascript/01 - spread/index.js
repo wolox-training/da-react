@@ -20,6 +20,11 @@ export function min(...array) {
   return undefined;
 }
 
-export function copy() {
-
+export function copy(obj) {
+  const props = Object.keys(obj);
+  const copiedObj = {};
+  props.forEach(prop => {
+    copiedObj[prop] = obj[prop];
+  });
+  return copiedObj;
 }
