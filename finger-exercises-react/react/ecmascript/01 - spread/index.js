@@ -30,3 +30,11 @@ export function copy(arg) {
   });
   return copiedObj;
 }
+
+export function reverseMerge(...arrays) {
+  const newArray = [];
+  arrays.forEach(array => {
+    newArray.unshift(...array);
+  });
+  return newArray;
+}
