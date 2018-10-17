@@ -21,13 +21,7 @@ export function min(...array) {
 }
 
 export function copy(arg) {
-  if (isArray(arg)) {
-    const copiedArray = [];
-    arg.forEach(elem => {
-      copiedArray.push(elem);
-    });
-    return copiedArray;
-  }
+  if (isArray(arg)) return [...arg];
 
   const props = Object.keys(arg);
   const copiedObj = {};
