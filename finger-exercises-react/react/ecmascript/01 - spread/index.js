@@ -13,22 +13,16 @@ export function min(...array) {
     if (hasNestedArray(array)) {
       return Math.min(...array[0]);
     }
-
     return Math.min(...array);
   }
-
   return undefined;
 }
 
-export function copy(arg) {
-  if (isArray(arg)) return [...arg];
-
-  const props = Object.keys(arg);
-  const copiedObj = {};
-  props.forEach(prop => {
-    copiedObj[prop] = arg[prop];
-  });
-  return copiedObj;
+export function copy(param) {
+  if (isArray(param)) {
+    return [...param];
+  }
+  return { ...param };
 }
 
 export function reverseMerge(...arrays) {
