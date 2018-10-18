@@ -9,9 +9,5 @@ export function delay(time) {
 }
 
 export function asyncDelay(time) {
-  const initalTime = Date.now();
-  return new Promise((resolve, reject) => {
-    if (time > 500) reject(new Error('This time is too much !'));
-    setInterval(() => resolve(Date.now() - initalTime), time);
-  });
+  return delay(time);
 }
