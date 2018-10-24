@@ -36,6 +36,16 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const winner = calculateWinner(current.squares);
+
+    const moves = history.map((step, move) => {
+      const text = move ? `Go to move #${move}` : 'Go to game start';
+      return (
+        <li>
+          <button onClick={() => this.jumpTo(move)}>{text}</button>
+        </li>
+      );
+    });
+
     let status;
     if (winner) status = `Winner: ${winner}`;
     else status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
@@ -46,7 +56,7 @@ class Game extends Component {
         </div>
         <div className={style.gameInfo}>
           <div>{status}</div>
-          <ol>{/* TODO */}</ol>
+          <ol>{moves}</ol>
         </div>
       </div>
     );
