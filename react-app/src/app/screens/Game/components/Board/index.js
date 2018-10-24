@@ -5,12 +5,18 @@ import Square from '../Square';
 import style from './style.scss';
 
 class Board extends Component {
-  state = { squares: Array(9).fill(null) };
+  state = {
+    squares: Array(9).fill(null),
+    xIsNext: false
+  };
 
   handleClick = i => {
     const squares = [...this.state.squares];
-    squares[i] = 'X';
-    this.setState({ squares });
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      squares,
+      xIsNext: !this.state.xIsNext
+    });
   };
 
   renderSquare(i) {
