@@ -3,11 +3,9 @@ import React, { Component } from 'react';
 import style from './styles.scss';
 
 class Square extends Component {
-  state = { value: null };
-
   render() {
     return (
-      <button className={style.square} onClick={() => alert('click')}>
+      <button className={style.square} onClick={this.props.onClick}>
         {this.props.value}
       </button>
     );

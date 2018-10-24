@@ -5,8 +5,16 @@ import Square from '../Square';
 import style from './style.scss';
 
 class Board extends Component {
+  state = { squares: Array(9).fill(null) };
+
+  handleClick = i => {
+    const squares = [...this.state.squares];
+    squares[i] = 'X';
+    this.setState({ squares });
+  };
+
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
   }
 
   render() {
