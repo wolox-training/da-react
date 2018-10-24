@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Square from '../Square';
 
+import { calculateWinner } from './utils';
 import style from './style.scss';
 
 class Board extends Component {
@@ -12,6 +13,9 @@ class Board extends Component {
 
   handleClick = i => {
     const squares = [...this.state.squares];
+    const hasWinner = calculateWinner(squares);
+    const squareIsFilled = squares[i];
+    if (hasWinner || squareIsFilled) return;
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares,
@@ -24,7 +28,10 @@ class Board extends Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    const winner = calculateWinner(this.state.squares);
+    let status;
+    if (winner) status = `Player ${winner} won`;
+    else status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
 
     return (
       <React.Fragment>
