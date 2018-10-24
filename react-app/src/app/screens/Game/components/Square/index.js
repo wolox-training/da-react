@@ -4,7 +4,7 @@ import style from './styles.scss';
 
 class Square extends Component {
   render() {
-    return <button className={style.square}>{/* TODO */}</button>;
+    return <button className={style.square}>{this.props.value}</button>;
   }
 }
 
