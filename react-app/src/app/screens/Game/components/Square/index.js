@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import style from './styles.scss';
 
-function Square(props) {
+function Square({ value, onClick }) {
   return (
-    <button className={style.square} onClick={props.onClick}>
-      {props.value}
+    <button className={style.square} onClick={onClick}>
+      {value}
     </button>
   );
 }

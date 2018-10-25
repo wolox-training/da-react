@@ -1,35 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Square from '../Square';
 
 import style from './style.scss';
 
-class Board extends Component {
-  renderSquare(i) {
-    return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
-  }
+function Board({ squares, onClick }) {
+  const renderSquare = squarePosition => (
+    <Square value={squares[squarePosition]} onClick={() => onClick(squarePosition)} />
+  );
+  const row1 = [0, 1, 2];
+  const row2 = [3, 4, 5];
+  const row3 = [6, 7, 8];
 
-  render() {
-    return (
-      <React.Fragment>
-        <div className={style.boardRow}>
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className={style.boardRow}>
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className={style.boardRow}>
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <div className={style.boardRow}>{row1.map(elem => renderSquare(elem))}</div>
+      <div className={style.boardRow}>{row2.map(elem => renderSquare(elem))}</div>
+      <div className={style.boardRow}>{row3.map(elem => renderSquare(elem))}</div>
+    </React.Fragment>
+  );
 }
 
 export default Board;

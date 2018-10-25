@@ -33,12 +33,12 @@ class GameContainer extends Component {
     });
   };
 
-  jumpTo(step) {
+  jumpTo = step => {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
     });
-  }
+  };
 
   render() {
     const history = this.state.history;
@@ -47,15 +47,15 @@ class GameContainer extends Component {
     let status;
     if (winner) status = `Winner: ${winner}`;
     else status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-    const moves = history.map((step, move) => {
-      const text = move ? `Go to move #${move}` : 'Go to game start';
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{text}</button>
-        </li>
-      );
-    });
-    return <Game status={status} moves={moves} squares={current.squares} onClick={this.handleClick} />;
+    return (
+      <Game
+        history={history}
+        status={status}
+        squares={current.squares}
+        onClick={this.handleClick}
+        jumpTo={this.jumpTo}
+      />
+    );
   }
 }
 
