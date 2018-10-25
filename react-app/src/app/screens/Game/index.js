@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-import Board from './components/Board';
 import { calculateWinner } from './utils';
-import style from './styles.scss';
+import Game from './layout.js';
 
-class Game extends Component {
+class GameContainer extends Component {
   state = {
     history: [
       {
@@ -15,14 +14,14 @@ class Game extends Component {
     xIsNext: true
   };
 
-  handleClick = i => {
+  handleClick = squarePosition => {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = [...current.squares];
     const hasWinner = calculateWinner(squares);
-    const squareIsFilled = squares[i];
+    const squareIsFilled = squares[squarePosition];
     if (hasWinner || squareIsFilled) return;
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[squarePosition] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([
         {
@@ -45,7 +44,9 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-
+    let status;
+    if (winner) status = `Winner: ${winner}`;
+    else status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     const moves = history.map((step, move) => {
       const text = move ? `Go to move #${move}` : 'Go to game start';
       return (
@@ -54,22 +55,8 @@ class Game extends Component {
         </li>
       );
     });
-
-    let status;
-    if (winner) status = `Winner: ${winner}`;
-    else status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-    return (
-      <div className={style.game}>
-        <div>
-          <Board squares={current.squares} onClick={this.handleClick} />
-        </div>
-        <div className={style.gameInfo}>
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
-    );
+    return <Game status={status} moves={moves} squares={current.squares} onClick={this.handleClick} />;
   }
 }
 
-export default Game;
+export default GameContainer;
