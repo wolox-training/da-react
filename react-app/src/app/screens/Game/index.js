@@ -14,13 +14,20 @@ class GameContainer extends Component {
     xIsNext: true
   };
 
+  getConst() {
+    const history = this.state.history;
+    const current = history[this.state.stepNumber];
+    const winner = calculateWinner(current.squares);
+    return { history, current, winner };
+  }
+
   handleClick = squarePosition => {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
+    const current = history[this.state.stepNumber];
     const squares = [...current.squares];
-    const hasWinner = calculateWinner(squares);
+    const winner = calculateWinner(squares);
     const squareIsFilled = squares[squarePosition];
-    if (hasWinner || squareIsFilled) return;
+    if (winner || squareIsFilled) return;
     squares[squarePosition] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([
@@ -41,9 +48,7 @@ class GameContainer extends Component {
   };
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
+    const { history, current, winner } = this.getConst();
     let status;
     if (winner) status = `Winner: ${winner}`;
     else status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;

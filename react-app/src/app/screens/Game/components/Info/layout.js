@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import styles from './styles.scss';
 
 function Info({ status, movesList }) {
   return (
-    <React.Fragment>
+    <Fragment>
       <div>{status}</div>
-      <ol>{movesList}</ol>
-    </React.Fragment>
+      <div className={styles.movesList}>{movesList}</div>
+    </Fragment>
   );
 }
 
