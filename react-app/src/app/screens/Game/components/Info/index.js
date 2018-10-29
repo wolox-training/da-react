@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { GO_TO_MOVE, GO_TO_GAME_START } from '../../constants';
+import { GO_TO_MOVE, GO_TO_GAME_START, NEXT_PLAYER } from '../../constants';
 
 import Button from './components/Button';
 import Info from './layout';
@@ -14,3 +15,16 @@ function InfoContainer({ history, status, onClick }) {
 }
 
 export default InfoContainer;
+
+InfoContainer.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.object),
+  status: PropTypes.string,
+  onClick: PropTypes.func.isRequired
+};
+
+InfoContainer.defaultProps = {
+  history: {
+    squares: Array(9).fill(null)
+  },
+  status: `${NEXT_PLAYER} X`
+};
