@@ -23,8 +23,8 @@ Game.propTypes = {
   history: PropTypes.arrayOf(PropTypes.object),
   status: PropTypes.string,
   squares: PropTypes.arrayOf(PropTypes.string),
-  onClick: PropTypes.instanceOf(Function).isRequired,
-  jumpTo: PropTypes.instanceOf(Function).isRequired
+  onClick: PropTypes.func.isRequired,
+  jumpTo: PropTypes.func.isRequired
 };
 
 Game.defaultProps = {
