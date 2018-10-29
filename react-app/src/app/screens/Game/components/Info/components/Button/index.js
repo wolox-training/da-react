@@ -11,11 +11,10 @@ export default Button;
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  move: PropTypes.number,
+  move: PropTypes.number.isRequired,
   text: PropTypes.string
 };
 
 Button.defaultProps = {
-  move: 0,
   text: GO_TO_GAME_START
 };
