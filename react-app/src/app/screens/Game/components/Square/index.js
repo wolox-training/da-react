@@ -18,6 +18,6 @@ Square.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-Square.propTypes = {
+Square.defaultProps = {
   value: ''
 };
