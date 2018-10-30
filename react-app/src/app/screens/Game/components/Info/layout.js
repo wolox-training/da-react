@@ -17,8 +17,12 @@ function Info({ status, movesList }) {
 export default Info;
 
 Info.propTypes = {
-  status: PropTypes.string,
-  movesList: PropTypes.arrayOf(PropTypes.element).isRequired
+  movesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.func
+    })
+  ).isRequired,
+  status: PropTypes.string
 };
 
 Info.defaultProps = {

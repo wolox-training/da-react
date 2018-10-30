@@ -17,13 +17,13 @@ function InfoContainer({ history, status, onClick }) {
 export default InfoContainer;
 
 InfoContainer.propTypes = {
+  onClick: PropTypes.func.isRequired,
   history: PropTypes.arrayOf(
     PropTypes.shape({
       move: PropTypes.number
     })
   ),
-  status: PropTypes.string,
-  onClick: PropTypes.func.isRequired
+  status: PropTypes.string
 };
 
 InfoContainer.defaultProps = {
