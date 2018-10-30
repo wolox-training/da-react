@@ -20,7 +20,11 @@ function Game({ history, status, squares, onClick, jumpTo }) {
 export default Game;
 
 Game.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.object),
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      squares: PropTypes.arrayOf(PropTypes.string)
+    })
+  ),
   status: PropTypes.string,
   squares: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func.isRequired,
@@ -30,9 +34,9 @@ Game.propTypes = {
 Game.defaultProps = {
   history: [
     {
-      squares: Array(9).fill(null)
+      squares: []
     }
   ],
   status: `${NEXT_PLAYER} X`,
-  squares: history[0].squares
+  squares: []
 };

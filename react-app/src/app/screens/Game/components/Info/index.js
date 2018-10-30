@@ -17,14 +17,18 @@ function InfoContainer({ history, status, onClick }) {
 export default InfoContainer;
 
 InfoContainer.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.object),
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      move: PropTypes.number
+    })
+  ),
   status: PropTypes.string,
   onClick: PropTypes.func.isRequired
 };
 
 InfoContainer.defaultProps = {
   history: {
-    squares: Array(9).fill(null)
+    squares: []
   },
   status: `${NEXT_PLAYER} X`
 };

@@ -18,7 +18,7 @@ export default Info;
 
 Info.propTypes = {
   status: PropTypes.string,
-  movesList: PropTypes.element.isRequired
+  movesList: PropTypes.arrayOf(PropTypes.element).isRequired
 };
 
 Info.defaultProps = {

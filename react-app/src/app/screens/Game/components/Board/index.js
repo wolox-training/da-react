@@ -31,5 +31,5 @@ Board.propTypes = {
 };
 
 Board.defaultProps = {
-  squares: Array(9).fill(null)
+  squares: []
 };
