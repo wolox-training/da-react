@@ -16,9 +16,9 @@ function Board({ squares, onClick }) {
 
   return (
     <div className={style.boardContainer}>
-      <div className={style.boardRow}>{row1.map(elem => renderSquare(elem))}</div>
-      <div className={style.boardRow}>{row2.map(elem => renderSquare(elem))}</div>
-      <div className={style.boardRow}>{row3.map(elem => renderSquare(elem))}</div>
+      <div className={style.boardRow}>{row1.map(squarePosition => renderSquare(squarePosition))}</div>
+      <div className={style.boardRow}>{row2.map(squarePosition => renderSquare(squarePosition))}</div>
+      <div className={style.boardRow}>{row3.map(squarePosition => renderSquare(squarePosition))}</div>
     </div>
   );
 }
