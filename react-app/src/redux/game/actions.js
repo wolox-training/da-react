@@ -1,15 +1,15 @@
 const actions = {
-  HANDLE_CLICK: 'HANDLE_CLICK',
-  JUMP_TO: 'JUMP_TO'
+  PLAY_TURN: 'PLAY_TURN',
+  GO_TO_TURN: 'GO_TO_TURN'
 };
 
 const actionCreators = {
-  handleClick: squarePosition => ({
-    type: actions.HANDLE_CLICK,
+  playTurn: squarePosition => ({
+    type: actions.PLAY_TURN,
     squarePosition
   }),
-  jumpTo: step => ({
-    type: actions.JUMP_TO,
+  goToTurn: step => ({
+    type: actions.GO_TO_TURN,
     step
   })
 };

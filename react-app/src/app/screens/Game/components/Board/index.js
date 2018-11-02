@@ -9,9 +9,9 @@ const row1 = [0, 1, 2];
 const row2 = [3, 4, 5];
 const row3 = [6, 7, 8];
 
-function Board({ squares, onClick }) {
+function Board({ squares, playTurn }) {
   const renderSquare = squarePosition => (
-    <Square value={squares[squarePosition]} onClick={() => onClick(squarePosition)} />
+    <Square value={squares[squarePosition]} playTurn={() => playTurn(squarePosition)} />
   );
 
   return (
@@ -27,7 +27,7 @@ export default Board;
 
 Board.propTypes = {
   squares: PropTypes.arrayOf(PropTypes.string),
-  onClick: PropTypes.func.isRequired
+  playTurn: PropTypes.func.isRequired
 };
 
 Board.defaultProps = {

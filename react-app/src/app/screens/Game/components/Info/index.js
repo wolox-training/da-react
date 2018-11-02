@@ -6,10 +6,10 @@ import { GO_TO_MOVE, GO_TO_GAME_START, NEXT_PLAYER } from '../../constants';
 import Button from './components/Button';
 import Info from './layout';
 
-function InfoContainer({ history, status, onClick }) {
+function InfoContainer({ history, status, goToTurn }) {
   const movesList = history.map((step, move) => {
     const text = move ? GO_TO_MOVE + move : GO_TO_GAME_START;
-    return <Button key={move} onClick={onClick} move={move} text={text} />;
+    return <Button key={move} goToTurn={goToTurn} move={move} text={text} />;
   });
   return <Info status={status} movesList={movesList} />;
 }
@@ -17,7 +17,7 @@ function InfoContainer({ history, status, onClick }) {
 export default InfoContainer;
 
 InfoContainer.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  goToTurn: PropTypes.func.isRequired,
   history: PropTypes.arrayOf(
     PropTypes.shape({
       move: PropTypes.number

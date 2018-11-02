@@ -6,12 +6,12 @@ import Info from './components/Info';
 import { NEXT_PLAYER } from './constants';
 import style from './styles.scss';
 
-function Game({ history, status, squares, onClick, jumpTo }) {
+function Game({ history, status, squares, playTurn, goToTurn }) {
   return (
     <div className={style.game}>
-      <Board squares={squares} onClick={onClick} />
+      <Board squares={squares} playTurn={playTurn} />
       <div className={style.gameInfo}>
-        <Info history={history} status={status} onClick={jumpTo} />
+        <Info history={history} status={status} goToTurn={goToTurn} />
       </div>
     </div>
   );
@@ -27,8 +27,8 @@ Game.propTypes = {
   ),
   status: PropTypes.string,
   squares: PropTypes.arrayOf(PropTypes.string),
-  onClick: PropTypes.func.isRequired,
-  jumpTo: PropTypes.func.isRequired
+  playTurn: PropTypes.func.isRequired,
+  goToTurn: PropTypes.func.isRequired
 };
 
 Game.defaultProps = {
