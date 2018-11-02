@@ -8,9 +8,9 @@ const actionCreators = {
     type: actions.HANDLE_CLICK,
     squarePosition
   }),
-  jumpTo: move => ({
+  jumpTo: step => ({
     type: actions.JUMP_TO,
-    move
+    step
   })
 };
 
