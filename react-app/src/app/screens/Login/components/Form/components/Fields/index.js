@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
 
-export function customInput(props) {
+import style from './styles.scss';
+
+export function customInput({ label, input, type, meta }) {
   return (
     <Fragment>
-      <label>{props.label}</label>
-      <input {...props.input} type={props.type} />
+      <label>{label}</label>
+      <input {...input} type={type} />
+      {meta.error && meta.touched && <div className={style.fieldError}>{meta.error}</div>}
     </Fragment>
   );
 }
