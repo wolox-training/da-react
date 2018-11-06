@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
-function Square({ value, onClick }) {
+function Square({ value, playTurn }) {
   return (
-    <button className={style.square} onClick={onClick}>
+    <button className={style.square} onClick={playTurn}>
       {value}
     </button>
   );
@@ -15,7 +15,7 @@ export default Square;
 
 Square.propTypes = {
   value: PropTypes.string,
-  onClick: PropTypes.func.isRequired
+  playTurn: PropTypes.func.isRequired
 };
 
 Square.defaultProps = {
