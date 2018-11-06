@@ -1,0 +1,9 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "dorian.alvarado@wolox.com.ar",
+      "password": "1234"
+    }
+  ]
+}
