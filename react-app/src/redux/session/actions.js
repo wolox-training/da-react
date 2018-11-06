@@ -1,26 +1,22 @@
 import UserService from '../../services/UserService';
 
 const actions = {
-  LOGIN_USER: 'LOGIN_USER',
-  LOGIN_USER_SUCCESS: 'LOGIN_USER_SUCCESS',
-  LOGIN_USER_FAILURE: 'LOGIN_USER_FAILURE'
+  LOGIN_USER: 'LOGIN_USER'
 };
 
 const actionCreators = {
   logInUser: values => async dispatch => {
-    dispatch(actions.LOGIN_USER);
     const response = await UserService.getUsers(values.email, values.password);
     const user = response.data[0];
-    if (response.ok && user) {
+    const token = user.token;
+    if (response.ok && token) {
+      localStorage.setItem('token', token);
       dispatch({
-        type: actions.LOGIN_USER_SUCCESS,
-        user
+        type: actions.LOGIN_USER,
+        token
       });
     } else {
-      dispatch({
-        type: actions.LOGIN_USER_FAILURE,
-        payload: response.problem
-      });
+      alert('TEST');
     }
   }
 };

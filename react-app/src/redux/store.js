@@ -3,10 +3,12 @@ import { reducer as form } from 'redux-form';
 import thunk from 'redux-thunk';
 
 import game from './game/reducer';
+import session from './session/reducer';
 
 const reducers = combineReducers({
   game,
-  form
+  form,
+  session
 });
 
 const enhancers = [];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import actionCreators from '../../../redux/login/actions';
+import actionCreators from '../../../redux/session/actions';
 
 import Form from './components/Form';
 import style from './styles.scss';
