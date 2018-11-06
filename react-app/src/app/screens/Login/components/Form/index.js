@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { required } from '../validation';
+import { required, checkEmail, passLength } from '../validation';
 
 import { customInput } from './components/Fields';
 import style from './styles.scss';
@@ -14,9 +14,9 @@ function Form({ handleSubmit }) {
         <Field
           name="email"
           component={customInput}
-          type="email"
+          type="text"
           label="Name"
-          validate={[required]}
+          validate={[required, checkEmail]}
         />
       </div>
       <div className={style.formField}>
@@ -25,7 +25,7 @@ function Form({ handleSubmit }) {
           component={customInput}
           type="password"
           label="Password"
-          validate={[required]}
+          validate={[required, passLength]}
         />
       </div>
       <button type="submit">Submit</button>
