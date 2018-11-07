@@ -18,4 +18,7 @@ const mapDispatchToProps = dispatch => ({
   handleSubmit: values => dispatch(actionCreators.logInUser(values))
 });
 
-export default connect(mapDispatchToProps)(Login);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login);

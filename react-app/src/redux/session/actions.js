@@ -8,8 +8,8 @@ const actionCreators = {
   logInUser: values => async dispatch => {
     const response = await UserService.getUsers(values.email, values.password);
     const user = response.data[0];
-    const token = user.token;
-    if (response.ok && token) {
+    if (response.ok && user) {
+      const token = user.token;
       localStorage.setItem('token', token);
       dispatch({
         type: actions.LOGIN_USER,

@@ -3,7 +3,7 @@ export function required(value) {
 }
 
 export function passLength(value) {
-  return value.length <= 8 ? 'Needs at least 8 characters' : undefined;
+  return value.length < 8 ? 'Needs at least 8 characters' : undefined;
 }
 
 export function checkEmail(value) {

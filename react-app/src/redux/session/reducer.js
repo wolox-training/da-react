@@ -1,11 +1,15 @@
-const initialState = JSON.parse(localStorage.getItem('token'));
+const token = localStorage.getItem('token');
+
+const initialState = {
+  isLoggedIn: token
+};
 
 function session(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN_USER':
       return {
         ...state,
-        token: action.token
+        isLoggedIn: action.token
       };
     default:
       return state;

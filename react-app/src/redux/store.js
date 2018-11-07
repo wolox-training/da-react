@@ -11,10 +11,7 @@ const reducers = combineReducers({
   session
 });
 
-const enhancers = [];
-enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-enhancers.push(applyMiddleware(thunk));
-
-const store = createStore(reducers, compose(...enhancers));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 export default store;
