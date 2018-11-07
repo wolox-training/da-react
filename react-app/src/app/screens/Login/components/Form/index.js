@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import { required, checkEmail, passLength } from '../validation';
 
@@ -32,9 +33,13 @@ function Form({ handleSubmit }) {
     </form>
   );
 }
-
+// eslint-disable-next-line no-func-assign
 Form = reduxForm({
   form: 'login'
 })(Form);
 
 export default Form;
+
+Form.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
