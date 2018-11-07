@@ -1,4 +1,5 @@
 import UserService from '../../services/UserService';
+import api from '../../config/api';
 
 import { NETWORK_PROBLEM, WRONG_INPUT } from './contants';
 
@@ -16,6 +17,7 @@ const actionCreators = {
         const user = response.data[0];
         const token = user.token;
         localStorage.setItem('token', token);
+        api.setHeader('access-token', token);
         dispatch({
           type: actions.LOGIN_USER,
           token
