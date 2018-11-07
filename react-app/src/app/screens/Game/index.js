@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import actionCreators from '../../../redux/game/actions';
 
 import Game from './layout.js';
 
-function GameContainer({ history, stepNumber, xIsNext, winner, playTurn, goToTurn }) {
+function GameContainer({ isLoggedIn, history, stepNumber, xIsNext, winner, playTurn, goToTurn }) {
+  if (!isLoggedIn) return <Redirect to="/login" />;
   const current = history[stepNumber];
   const squares = current.squares;
   let status;
@@ -20,7 +22,8 @@ const mapStateToProps = state => ({
   history: state.game.history,
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
-  winner: state.game.winner
+  winner: state.game.winner,
+  isLoggedIn: state.session.isLoggedIn
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -34,6 +37,7 @@ export default connect(
 )(GameContainer);
 
 GameContainer.propTypes = {
+  isLoggedIn: PropTypes.bool,
   playTurn: PropTypes.func.isRequired,
   goToTurn: PropTypes.func.isRequired,
   history: PropTypes.arrayOf(
@@ -47,6 +51,7 @@ GameContainer.propTypes = {
 };
 
 GameContainer.defaultProps = {
+  isLoggedIn: false,
   history: {
     squares: []
   },
