@@ -1,7 +1,8 @@
 const token = localStorage.getItem('token');
 
 const initialState = {
-  isLoggedIn: token
+  isLoggedIn: token,
+  requestFailure: ''
 };
 
 function session(state = initialState, action) {
@@ -10,6 +11,11 @@ function session(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: action.token
+      };
+    case 'LOGIN_USER_FAILURE':
+      return {
+        ...state,
+        requestFailure: action.requestFailure
       };
     default:
       return state;

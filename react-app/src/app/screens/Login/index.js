@@ -8,17 +8,19 @@ import actionCreators from '../../../redux/session/actions';
 import Form from './components/Form';
 import style from './styles.scss';
 
-function Login({ isLoggedIn, handleSubmit }) {
+function Login({ isLoggedIn, requestFailure, handleSubmit }) {
   if (isLoggedIn) return <Redirect to="/game" />;
   return (
     <div className={style.formContainer}>
       <Form onSubmit={handleSubmit} />
+      {requestFailure && <div className={style.formError}>{requestFailure}</div>}
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.session.isLoggedIn
+  isLoggedIn: state.session.isLoggedIn,
+  requestFailure: state.session.requestFailure
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -32,9 +34,11 @@ export default connect(
 
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
+  requestFailure: PropTypes.string
 };
 
 Login.defaultProps = {
-  isLoggedIn: false
+  isLoggedIn: false,
+  requestFailure: ''
 };
