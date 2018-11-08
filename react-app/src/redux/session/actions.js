@@ -10,7 +10,7 @@ const actions = {
 
 const actionCreators = {
   logInUser: values => async dispatch => {
-    const response = await UserService.getUsers(values.email, values.password);
+    const response = await UserService.getUsers(values);
     if (response.ok) {
       const retrievedUsers = response.data.length;
       if (retrievedUsers) {

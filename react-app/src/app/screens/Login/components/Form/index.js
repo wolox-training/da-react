@@ -34,11 +34,9 @@ function Form({ handleSubmit }) {
   );
 }
 // eslint-disable-next-line no-func-assign
-Form = reduxForm({
+export default reduxForm({
   form: 'login'
 })(Form);
-
-export default Form;
 
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired

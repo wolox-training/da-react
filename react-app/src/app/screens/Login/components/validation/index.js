@@ -1,10 +1,6 @@
-export function required(value) {
-  return value ? undefined : 'Value is required';
-}
+export const required = value => (value ? undefined : 'Value is required');
 
-export function passLength(value) {
-  return value.length < 8 ? 'Needs at least 8 characters' : undefined;
-}
+export const passLength = value => (value.length < 8 ? 'Needs at least 8 characters' : undefined);
 
 export function checkEmail(value) {
   const str = String(value).toLowerCase();
