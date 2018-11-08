@@ -8,10 +8,9 @@ import Info from './components/Info';
 import { NEXT_PLAYER } from './constants';
 import style from './styles.scss';
 
-function Game({ isLoggedIn, history, status, squares, playTurn, goToTurn }) {
+function Game({ history, status, squares, playTurn, goToTurn }) {
   return (
     <Fragment>
-      {isLoggedIn && <TopBar />}
       <div className={style.game}>
         <Board squares={squares} playTurn={playTurn} />
         <div className={style.gameInfo}>
@@ -27,7 +26,6 @@ export default Game;
 Game.propTypes = {
   playTurn: PropTypes.func.isRequired,
   goToTurn: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.string,
   history: PropTypes.arrayOf(
     PropTypes.shape({
       squares: PropTypes.arrayOf(PropTypes.string)
@@ -38,7 +36,6 @@ Game.propTypes = {
 };
 
 Game.defaultProps = {
-  isLoggedIn: null,
   history: [
     {
       squares: []

@@ -1,7 +1,8 @@
 const Routes = {
   loginRoute: '/login',
-  gameRoute: '/game',
-  profileRoute: '/profile'
+  gameRoute: '/app/game',
+  profileRoute: 'app/profile',
+  appRoute: '/app'
 };
 
 export default Routes;
