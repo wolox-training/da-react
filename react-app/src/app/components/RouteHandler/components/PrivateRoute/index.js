@@ -22,5 +22,5 @@ PrivateRoute.propTypes = {
 
 PrivateRoute.defaultProps = {
   path: '/',
-  isLoggedIn: ''
+  isLoggedIn: null
 };

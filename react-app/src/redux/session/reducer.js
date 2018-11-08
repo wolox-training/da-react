@@ -17,6 +17,11 @@ function session(state = initialState, action) {
         ...state,
         requestFailure: action.requestFailure
       };
+    case 'LOG_USER_OUT':
+      return {
+        ...state,
+        isLoggedIn: action.isLoggedIn
+      };
     default:
       return state;
   }

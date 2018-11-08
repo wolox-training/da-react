@@ -5,7 +5,8 @@ import { NETWORK_PROBLEM, WRONG_INPUT } from './contants';
 
 const actions = {
   LOGIN_USER: 'LOGIN_USER',
-  LOGIN_USER_FAILURE: 'LOGIN_USER_FAILURE'
+  LOGIN_USER_FAILURE: 'LOGIN_USER_FAILURE',
+  LOG_USER_OUT: 'LOG_USER_OUT'
 };
 
 const actionCreators = {
@@ -34,7 +35,11 @@ const actionCreators = {
         requestFailure: NETWORK_PROBLEM
       });
     }
-  }
+  },
+  logUserOut: () => ({
+    type: actions.LOG_USER_OUT,
+    isLoggedIn: null
+  })
 };
 
 export default actionCreators;
