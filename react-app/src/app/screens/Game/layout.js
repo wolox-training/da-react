@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import TopBar from '../../components/TopBar';
-
 import Board from './components/Board';
 import Info from './components/Info';
 import { NEXT_PLAYER } from './constants';
