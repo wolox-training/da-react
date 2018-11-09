@@ -11,17 +11,16 @@ const actions = {
 
 const actionCreators = {
   logInUser: values => async dispatch => {
-    const response = await UserService.getUsers(values);
+    const response = await UserService.getUser(values);
     if (response.ok) {
       const retrievedUsers = response.data.length;
       if (retrievedUsers) {
         const user = response.data[0];
-        const token = user.token;
-        localStorage.setItem('token', token);
-        api.setHeader('access-token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        api.setHeader('access-token', user.token);
         dispatch({
           type: actions.LOGIN_USER,
-          token
+          user
         });
       } else {
         dispatch({

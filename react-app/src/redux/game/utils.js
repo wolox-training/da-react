@@ -1,3 +1,5 @@
+import UserService from '../../services/UserService';
+
 function calculateWinner(squares) {
   const lines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
   let winner = null;
@@ -8,6 +10,15 @@ function calculateWinner(squares) {
     }
   });
   return winner;
+}
+
+async function updateDBWinnerCounter(winner) {
+  const token = JSON.parse(localStorage.getItem('user')).token;
+  const response = await UserService.getUser(token);
+  const user = response.data[0];
+  const prop = winner === 'X' ? 'xWins' : 'oWins';
+  user[prop] += 1;
+  UserService.updateUser(user.id, user);
 }
 
 export function goToTurn(state, step) {
@@ -29,6 +40,7 @@ export function playTurn(state, squarePosition) {
   if (state.winner || squareIsFilled) return state;
   squares[squarePosition] = state.xIsNext ? 'X' : 'O';
   const winner = calculateWinner(squares);
+  if (winner) updateDBWinnerCounter(winner);
   return {
     ...state,
     history: history.concat([

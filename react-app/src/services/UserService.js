@@ -1,5 +1,6 @@
 import api from '../config/api';
 
 export default {
-  getUsers: body => api.get('/users', body)
+  getUser: body => api.get('/users', body),
+  updateUser: (id, body) => api.put(`/users/${id}`, body)
 };
