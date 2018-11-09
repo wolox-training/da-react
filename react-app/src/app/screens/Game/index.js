@@ -20,7 +20,8 @@ const mapStateToProps = state => ({
   history: state.game.history,
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
-  winner: state.game.winner
+  winner: state.game.winner,
+  isLoggedIn: state.session.isLoggedIn
 });
 
 const mapDispatchToProps = dispatch => ({

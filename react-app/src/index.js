@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import './scss/index.scss';
 import registerServiceWorker from './registerServiceWorker';
 import store from './redux/store';
-import Game from './app/screens/Game';
+import App from './app/components/RouteHandler';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Game />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
