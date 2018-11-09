@@ -1,7 +1,7 @@
 const Routes = {
   loginRoute: '/login',
   gameRoute: '/app/game',
-  profileRoute: 'app/profile',
+  profileRoute: '/app/profile',
   appRoute: '/app'
 };
 
