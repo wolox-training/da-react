@@ -10,7 +10,7 @@ import styles from './styles.scss';
 
 function TopBar({ logUserOut }) {
   const logOut = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     logUserOut();
   };
 

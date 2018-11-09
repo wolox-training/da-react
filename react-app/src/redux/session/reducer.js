@@ -1,16 +1,26 @@
-const token = localStorage.getItem('token');
+import setInitialState from './utils';
 
-const initialState = {
-  isLoggedIn: token,
-  requestFailure: ''
-};
+let initialState;
+const user = JSON.parse(localStorage.getItem('user'));
+
+if (user) {
+  initialState = setInitialState(user);
+} else {
+  initialState = {
+    isLoggedIn: '',
+    requestFailure: ''
+  };
+}
 
 function session(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN_USER':
       return {
         ...state,
-        isLoggedIn: action.token
+        isLoggedIn: action.user.token,
+        name: action.user.name,
+        xWins: action.user.xWins,
+        oWins: action.user.oWins
       };
     case 'LOGIN_USER_FAILURE':
       return {
