@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import actionCreators from '../../../redux/session/actions';
 import Routes from '../../../constants/routes';
 
 import styles from './styles.scss';
@@ -28,11 +29,14 @@ function TopBar({ logUserOut }) {
   );
 }
 
-const mapDispatchToProps = state => ({
-  logUserOut: state.session.logUserOut
+const mapDispatchToProps = dispatch => ({
+  logUserOut: () => dispatch(actionCreators.logUserOut())
 });
 
-export default connect(mapDispatchToProps)(TopBar);
+export default connect(
+  null,
+  mapDispatchToProps
+)(TopBar);
 
 TopBar.propTypes = {
   logUserOut: PropTypes.func.isRequired
