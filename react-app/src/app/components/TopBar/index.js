@@ -8,7 +8,7 @@ import Routes from '../../../constants/routes';
 
 import styles from './styles.scss';
 
-function TopBar({ logUserOut }) {
+function TopBar({ logUserOut, updateSession }) {
   const logOut = () => {
     localStorage.removeItem('user');
     logUserOut();
@@ -19,7 +19,7 @@ function TopBar({ logUserOut }) {
       <Link className={styles.navLink} to={Routes.gameRoute}>
         Game
       </Link>
-      <Link className={styles.navLink} to={Routes.profileRoute}>
+      <Link className={styles.navLink} to={Routes.profileRoute} onClick={updateSession}>
         Profile
       </Link>
       <Link className={styles.navLink} to={Routes.loginRoute} onClick={logOut}>
@@ -30,7 +30,8 @@ function TopBar({ logUserOut }) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  logUserOut: () => dispatch(actionCreators.logUserOut())
+  logUserOut: () => dispatch(actionCreators.logUserOut()),
+  updateSession: () => dispatch(actionCreators.updateSession())
 });
 
 export default connect(
@@ -39,5 +40,6 @@ export default connect(
 )(TopBar);
 
 TopBar.propTypes = {
-  logUserOut: PropTypes.func.isRequired
+  logUserOut: PropTypes.func.isRequired,
+  updateSession: PropTypes.func.isRequired
 };

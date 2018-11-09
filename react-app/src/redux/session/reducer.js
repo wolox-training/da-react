@@ -32,6 +32,12 @@ function session(state = initialState, action) {
         ...state,
         isLoggedIn: action.isLoggedIn
       };
+    case 'UPDATE_SESSION':
+      return {
+        ...state,
+        xWins: action.user.xWins,
+        oWins: action.user.oWins
+      };
     default:
       return state;
   }
