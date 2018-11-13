@@ -9,6 +9,7 @@ import Info from './layout';
 function InfoContainer({ history, status, goToTurn }) {
   const movesList = history.map((step, move) => {
     const text = move ? GO_TO_MOVE + move : GO_TO_GAME_START;
+    // eslint-disable-next-line react/no-array-index-key
     return <Button key={move} goToTurn={goToTurn} move={move} text={text} />;
   });
   return <Info status={status} movesList={movesList} />;

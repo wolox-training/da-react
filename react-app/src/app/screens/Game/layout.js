@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Board from './components/Board';
@@ -8,27 +8,29 @@ import style from './styles.scss';
 
 function Game({ history, status, squares, playTurn, goToTurn }) {
   return (
-    <div className={style.game}>
-      <Board squares={squares} playTurn={playTurn} />
-      <div className={style.gameInfo}>
-        <Info history={history} status={status} goToTurn={goToTurn} />
+    <Fragment>
+      <div className={style.game}>
+        <Board squares={squares} playTurn={playTurn} />
+        <div className={style.gameInfo}>
+          <Info history={history} status={status} goToTurn={goToTurn} />
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
 
 export default Game;
 
 Game.propTypes = {
+  playTurn: PropTypes.func.isRequired,
+  goToTurn: PropTypes.func.isRequired,
   history: PropTypes.arrayOf(
     PropTypes.shape({
       squares: PropTypes.arrayOf(PropTypes.string)
     })
   ),
   status: PropTypes.string,
-  squares: PropTypes.arrayOf(PropTypes.string),
-  playTurn: PropTypes.func.isRequired,
-  goToTurn: PropTypes.func.isRequired
+  squares: PropTypes.arrayOf(PropTypes.string)
 };
 
 Game.defaultProps = {

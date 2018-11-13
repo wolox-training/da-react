@@ -6,17 +6,27 @@ import actionCreators from '../../../redux/game/actions';
 
 import Game from './layout.js';
 
-function GameContainer({ history, stepNumber, xIsNext, winner, playTurn, goToTurn }) {
+function GameContainer({ isLoggedIn, history, stepNumber, xIsNext, winner, playTurn, goToTurn }) {
   const current = history[stepNumber];
   const squares = current.squares;
   let status;
   if (winner) status = `Winner: ${winner}`;
   else status = `Next player: ${xIsNext ? 'X' : 'O'}`;
 
-  return <Game history={history} status={status} squares={squares} playTurn={playTurn} goToTurn={goToTurn} />;
+  return (
+    <Game
+      isLoggedIn={isLoggedIn}
+      history={history}
+      status={status}
+      squares={squares}
+      playTurn={playTurn}
+      goToTurn={goToTurn}
+    />
+  );
 }
 
 const mapStateToProps = state => ({
+  isLoggedIn: state.session.isLoggedIn,
   history: state.game.history,
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
@@ -36,6 +46,7 @@ export default connect(
 GameContainer.propTypes = {
   playTurn: PropTypes.func.isRequired,
   goToTurn: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.string,
   history: PropTypes.arrayOf(
     PropTypes.shape({
       squares: PropTypes.arrayOf(PropTypes.string)
@@ -47,6 +58,7 @@ GameContainer.propTypes = {
 };
 
 GameContainer.defaultProps = {
+  isLoggedIn: null,
   history: {
     squares: []
   },
