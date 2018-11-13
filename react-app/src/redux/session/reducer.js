@@ -8,7 +8,8 @@ if (user) {
 } else {
   initialState = {
     isLoggedIn: '',
-    requestFailure: ''
+    requestFailure: '',
+    isLoading: false
   };
 }
 
@@ -17,6 +18,12 @@ function session(state = initialState, action) {
     case 'LOGIN_USER':
       return {
         ...state,
+        isLoading: true
+      };
+    case 'LOGIN_USER_SUCCESS':
+      return {
+        ...state,
+        isLoading: false,
         isLoggedIn: action.user.token,
         name: action.user.name,
         xWins: action.user.xWins,
@@ -25,6 +32,7 @@ function session(state = initialState, action) {
     case 'LOGIN_USER_FAILURE':
       return {
         ...state,
+        isLoading: false,
         requestFailure: action.requestFailure
       };
     case 'LOG_USER_OUT':

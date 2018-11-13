@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 
 import { required, checkEmail, passLength } from '../validation';
 
+import Button from './components/Button';
 import { customInput } from './components/Fields';
 import style from './styles.scss';
 
-function Form({ handleSubmit }) {
+function Form({ handleSubmit, isLoading }) {
   return (
     <form className={style.form} onSubmit={handleSubmit}>
       <h2 className={style.formTitle}>Tic Tac Toe</h2>
@@ -29,7 +30,7 @@ function Form({ handleSubmit }) {
           validate={[required, passLength]}
         />
       </div>
-      <button type="submit">Submit</button>
+      <Button isLoading={isLoading} />
     </form>
   );
 }
