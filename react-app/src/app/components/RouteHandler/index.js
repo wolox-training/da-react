@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Routes from '../../../constants/routes';
 import AppContainer from '../App';
@@ -11,9 +11,10 @@ function App() {
   return (
     <Router>
       <Fragment>
-        <Route path={Routes.appRoute} component={AppContainer} />
-        <Route path={Routes.loginRoute} component={Login} />
-        <PrivateRoute path={Routes.gameRoute} />
+        <Switch>
+          <Route exact path={Routes.loginRoute} component={Login} />
+          <PrivateRoute component={AppContainer} />
+        </Switch>
       </Fragment>
     </Router>
   );

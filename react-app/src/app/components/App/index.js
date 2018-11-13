@@ -10,8 +10,8 @@ function App() {
   return (
     <Fragment>
       <TopBar />
-      <Route path={Routes.gameRoute} component={Game} />
-      <Route path={Routes.profileRoute} component={UserProfile} />
+      <Route path={Routes.gameRoute} exact component={Game} />
+      <Route path={Routes.profileRoute} exact component={UserProfile} />
     </Fragment>
   );
 }
